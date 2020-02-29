@@ -55,14 +55,8 @@ export  default {
           // 
           // this.$router.push('noteList')
           // alert(this.username);
-          // this.$http.get('getUser/' + this.username)
-          // .then(function (response) {
-          //   console.log(response);
-          // })
-          // .catch(function (error) {
-          //   console.log(error);
-          // });
-          this.$axios.get('http://127.0.0.1:8080/getUser/1')
+
+          this.$axios.get('getUser/1')
           .then(function (response) {
             console.log(response);
           })

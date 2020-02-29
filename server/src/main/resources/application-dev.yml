@@ -12,6 +12,8 @@ mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
   type-aliases-package: com.aweikn.springseed.entity
 
+
+
 #showSql
 logging:
   level:
