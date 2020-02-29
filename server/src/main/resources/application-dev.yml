@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: root
+    password: Smart123
+    url: jdbc:mysql://45.144.137.40:3306/springseed?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.aweikn.springseed.entity
+
+#showSql
+logging:
+  level:
+    com:
+      example:
+        mapper : debug
