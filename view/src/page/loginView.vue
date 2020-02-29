@@ -1,4 +1,3 @@
-/* eslint-disable no-empty */
 <template>
   <!---登录组件 全屏背景没有现成的组件得来bootstrap  自适应--->
   <div class="container-fuild	">

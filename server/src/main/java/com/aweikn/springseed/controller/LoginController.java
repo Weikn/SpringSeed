@@ -21,14 +21,14 @@ public class LoginController {
     @ApiOperation(value="商品查询(分页)")
     @RequestMapping("/")
     public String login(){
-        System.out.println("///");
+//        System.out.println("///");
         return loginService.getInfo();
     }
     @ApiOperation(value = "获取用户", notes="通过手机号获取OTP验证码")
     @ApiImplicitParam(name = "getUser", value = "user", paramType = "query", required = true, dataType = "String")
     @RequestMapping("getUser/{userId}")
     public String getUser(@PathVariable(value = "userId")  Integer userId) {
-        System.out.println(userId);
+//        System.out.println(userId);
         return loginService.Sel(userId).toString();
     }
 }

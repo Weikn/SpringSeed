@@ -4,7 +4,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import app from   './app.vue'
-
 import axios from 'axios'
 //可以给axios的ajax请求设置统一的主机和端口号
 //将axios这个对象添加到Vue的原型对象中，在使用的时候就只需要使用this.对象名就可以了
@@ -42,7 +41,6 @@ new Vue({
     },
     render : c => c(app),
     router,
-
 })
 
 //循环遍历 注册某个文件下所有组件
