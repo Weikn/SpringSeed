@@ -52,7 +52,23 @@ export  default {
         //通过后给父组件发消息 路由跳转
         if ( this.username != '' ) {
           // this.$emit()
-          this.$router.push('noteList')
+          // 
+          // this.$router.push('noteList')
+          // alert(this.username);
+          // this.$http.get('getUser/' + this.username)
+          // .then(function (response) {
+          //   console.log(response);
+          // })
+          // .catch(function (error) {
+          //   console.log(error);
+          // });
+          this.$axios.get('http://127.0.0.1:8080/getUser/1')
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
         }
         else 
         {

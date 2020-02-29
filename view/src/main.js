@@ -5,6 +5,19 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import app from   './app.vue'
 
+import axios from 'axios'
+//可以给axios的ajax请求设置统一的主机和端口号
+// axios.defaults.baseURL = "http://loaclhost:8080/";
+//将axios这个对象添加到Vue的原型对象中，在使用的时候就只需要使用this.对象名就可以了
+// Vue.prototype.$http = axios;
+// 将API方法绑定到全局
+Vue.prototype.$axios = axios;
+Vue.config.productionTip = false;
+axios.defaults.baseURL="/api"
+axios.defaults.headers.post['Content-Type']='application/json';
+// axios.defaults.headers.common['Authorization'] = 'AUTH_TOKEN';
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
 
 //导入需要的全局样式
 import 'bootstrap/dist/css/bootstrap.min.css';

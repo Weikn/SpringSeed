@@ -20,11 +20,11 @@
 <!--    parameterType="java.lang.Integer"-->
     <select id="Sel" parameterType="java.lang.Integer" resultMap="BaseResultMap">
 <!--    <select id="Sel" resultType="com.aweikn.springseed.entity.User">-->
-        SELECT T.USER_NAME  from  `USER` T  where T.USER_ID = ${userId};
+        SELECT T.*  from  `USER` T  where T.USER_ID = ${userId};
     </select>
 
-    <select id="getInfo" resultType="com.aweikn.springseed.entity.User" >
-        select * from `USER`;
+    <select id="getInfo" resultMap="BaseResultMap" >
+        select t.* from `USER` t;
     </select>
 
 </mapper>

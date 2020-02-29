@@ -26,8 +26,14 @@ module.exports = {
         open : true, //自动打开浏览器   
         port : 3000,    //指定端口
         contentBase : 'src', //指定默认目录
-        hot  : true //  打开热部署  免刷新
-
+        hot  : true, //  打开热部署  免刷新
+        // proxy: {
+        //   '/api': {
+        //     target: 'http://127.0.0.1:8080/',
+        //     pathRewrite: {'^/api' : ''},
+        //     changeOrigin: true,     // target是域名的话，需要这个参数，
+        //     secure: false,          // 设置支持https协议的代理
+        //   },
      },
 
      plugins : [ //配置插件节点

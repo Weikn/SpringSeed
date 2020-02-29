@@ -18,6 +18,6 @@ public class LoginService {
     }
 
     public String getInfo(){
-        return userMapper.getInfo();
+        return userMapper.getInfo().toString();
     }
 }

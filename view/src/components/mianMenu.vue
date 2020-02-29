@@ -12,7 +12,7 @@ export  default {
       }
     },
     methods : {
-      show(){
+      get(){
         console.log("调用 show 的方法")
       }
     }
