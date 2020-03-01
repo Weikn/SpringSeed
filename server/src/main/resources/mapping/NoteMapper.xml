@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aweikn.springseed.mapper.NoteMapper">
+
+    <resultMap id="BaseResultMap" type="com.aweikn.springseed.entity.Note">
+        <result column="NOTE_ID" jdbcType="INTEGER" property="noteId" />
+        <result column="NOTE_TITLE" jdbcType="VARCHAR" property="noteTitle" />
+        <result column="NOTE_SUMMARY" jdbcType="VARCHAR" property="noteSummary" />
+        <result column="NOTE_CONTENT" jdbcType="VARCHAR" property="noteContent" />
+        <result column="NOTE_CREATE_DATE" jdbcType="TIMESTAMP" property="noteCreateDate" />
+        <result column="NOTE_UPDATE" jdbcType="TIMESTAMP" property="noteUpdate" />
+        <result column="NOTE_USER_ID" jdbcType="INTEGER" property="noteUserId" />
+        <result column="NOTE_BOOK_ID" jdbcType="INTEGER" property="noteBookId" />
+        <result column="PARTY_TYPE" jdbcType="VARCHAR" property="partyType" />
+        <result column="PARTY_CODE" jdbcType="VARCHAR" property="partyCode" />
+        <result column="FILE_CONTENT_ID" jdbcType="INTEGER" property="fileContentId" />
+    </resultMap>
+
+    <select id="getNoteByUserId" resultMap="BaseResultMap">
+        select t.* from  NOTE t where t.NOTE_USER_ID = #{noteUserId};
+    </select>
+</mapper>

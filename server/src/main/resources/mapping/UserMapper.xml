@@ -11,7 +11,7 @@
         <result column="USER_PWD" jdbcType="VARCHAR" property="userPWD" />
         <result column="USER_MAIL" jdbcType="VARCHAR" property="userMail" />
         <result column="LAST_NAME" jdbcType="VARCHAR" property="lastName" />
-        <result column="FAST_NAME" jdbcType="VARCHAR" property="fastName" />
+        <result column="FIAST_NAME" jdbcType="VARCHAR" property="fiastName" />
         <result column="PARTY_TYPE" jdbcType="VARCHAR" property="partyType" />
         <result column="PARTY_CODE" jdbcType="VARCHAR" property="partyCode" />
         <result column="USER_CREATE_DATE" jdbcType="TIMESTAMP" property="userCreateDate" />
@@ -19,8 +19,16 @@
     </resultMap>
 <!--    parameterType="java.lang.Integer"-->
     <select id="Sel" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-<!--    <select id="Sel" resultType="com.aweikn.springseed.entity.User">-->
         SELECT T.*  from  `USER` T  where T.USER_ID = ${userId};
+    </select>
+
+    <select id="getUserByCode"  resultMap="BaseResultMap">
+        SELECT T.*  from  `USER` T  where T.USER_CODE = #{userCode};
+    </select>
+
+
+    <select id="isUserExist" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select t.* from  `USER` t where t.USER_CODE = #{userCode};
     </select>
 
     <select id="getInfo" resultMap="BaseResultMap" >

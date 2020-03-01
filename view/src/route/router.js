@@ -14,7 +14,7 @@ import noteInfo from '../page/noteInfoView.vue'
 var router  = new VueRouter({
     routes :[
       {
-        path : '/', component : noteInfo
+        path : '/', component : login
       },
       {
         path : '/login', 

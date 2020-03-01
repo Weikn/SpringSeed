@@ -20,7 +20,7 @@ public class User {
 
     private String  lastName;
 
-    private String  fastName;
+    private String  fiastName;
 
     private String  partyType;
 
@@ -94,12 +94,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getFastName() {
-        return fastName;
+    public String getFiastName() {
+        return fiastName;
     }
 
-    public void setFastName(String fastName) {
-        this.fastName = fastName;
+    public void setFiastName(String fastName) {
+        this.fiastName = fastName;
     }
 
     public String getPartyType() {
@@ -145,7 +145,7 @@ public class User {
                 ", userPWD='" + userPWD + '\'' +
                 ", userMail='" + userMail + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", fastName='" + fastName + '\'' +
+                ", fiastName='" + fiastName + '\'' +
                 ", partyType='" + partyType + '\'' +
                 ", partyCode='" + partyCode + '\'' +
                 ", userCreateDate=" + userCreateDate +

@@ -11,4 +11,8 @@ public interface UserMapper {
     User Sel(Integer userId);
 
     List<User> getInfo();
+
+    User isUserExist(String userCode);
+
+    User getUserByCode(String  userCode);
 }
