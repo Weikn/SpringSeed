@@ -12,7 +12,7 @@
                   <path fill-rule="evenodd" d="M15.854 5.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L8.5 12.293l6.646-6.647a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
                 </svg>
 
-                <svg class="bi bi-chevron-left" width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <svg class="bi bi-chevron-left" @click="chevronLeftHandler" width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M13.354 3.646a.5.5 0 010 .708L7.707 10l5.647 5.646a.5.5 0 01-.708.708l-6-6a.5.5 0 010-.708l6-6a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
                 </svg>
 
@@ -37,7 +37,7 @@
             </div>
             <div class="titleArea">
                 <!-- 主题 新增标题 修改标题-->
-                <h1>这是今天的主题 你们还好吗</h1>
+                <h1>{{ title }}</h1>
             </div>
             <div class="describeArea">
                 <!-- 所属笔记分类  提醒 标记 详情-->
@@ -54,8 +54,10 @@
                 </svg>
             </div>
         </div>
-        <div class='content'>
-          <p>这是这条note 的内容  content</p>
+        <div class='content' >
+          <!-- <p>{{ centent }}</p> -->
+          <editor :content="content" :height="442" :z-index="1000" :auto-height="true" :show-module-name="false" ></editor>
+
         </div>
         <div class="penBtu">
           <svg class="bi bi-pencil" @click="panBtuHandler" width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -66,8 +68,41 @@
     </div>
 </template>
 <script>
+import 'font-awesome/css/font-awesome.css'
+import VueHtml5Editor from 'vue-html5-editor'
+
+
+const options = {
+      language: "zh-cn",
+}
+const editor = new VueHtml5Editor(options)
+
 export default {
-    
+     data () {
+      return {
+        status  : '',
+        title   : "",
+        content : "",
+        // editorHeight  : '900',
+      }
+    },
+    computed :{
+      editorHeight:function(){
+        // console.log(this.$refs.contentEl.editorHeight)
+        return 800;
+      }
+
+    },
+    components:{
+        editor
+    },
+    methods : {
+      chevronLeftHandler(){
+        console.log(this.$refs.contentEl.editorHeight)
+          this.$router.push('noteList') ;
+      },
+      panBtuHandler(){}
+    }
 }
 </script>
 <style scoped>

@@ -18,15 +18,16 @@ Vue.config.productionTip = false;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 
+
 //导入需要的全局样式
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //注册mint-ui 部分组件
-
 import Mint from 'mint-ui';
 import 'mint-ui/lib/style.css'
 Vue.use(Mint);
-
+// import VueHtml5Editor from 'vue-html5-editor'
+// Vue.use(VueHtml5Editor,VueHtml5Editor);
 
 //导入 vue router
 Vue.use(VueRouter);

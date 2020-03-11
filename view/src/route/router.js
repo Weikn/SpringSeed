@@ -23,7 +23,9 @@ var router  = new VueRouter({
           {path : 'menu' , component : menu}
         ]
       } ,
-      {path : '/noteList',component :noteList}
+      {path : '/noteList',component :noteList},
+      {path : '/noteInfo',component :noteInfo}
+
     ]
 
 })

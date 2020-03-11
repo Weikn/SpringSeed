@@ -70,6 +70,8 @@ export  default {
     methods : {
       panBtuHandler(){
         alert('panBtu  click')
+        this.$router.push('noteInfo') ;
+
       },
 
       searchHandler(){

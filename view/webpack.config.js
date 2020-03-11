@@ -27,6 +27,7 @@ module.exports = {
         port : 3000,    //指定端口
         contentBase : 'src', //指定默认目录
         hot  : true, //  打开热部署  免刷新
+        host : '192.168.2.104',
         // proxy: {
         //   '/api': {
         //     target: 'http://127.0.0.1:8080/',
@@ -41,7 +42,12 @@ module.exports = {
             template : path.join(__dirname,'./src/index.html'),
             filename : 'index.html'
         }),
-        new vueLoaderPlugin()
+        new vueLoaderPlugin(),
+        //关于字体他
+        // new ExtractTextPlugin({
+        //   filename: utils.assetsPath('../[name].[contenthash].css'),
+        //   allChunks: true,
+        // }),
      ],
 
      module : { //配置所有第三方模块加载器

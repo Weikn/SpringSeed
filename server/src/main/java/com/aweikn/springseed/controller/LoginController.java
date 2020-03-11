@@ -27,6 +27,7 @@ public class LoginController {
         @ApiImplicitParam(name="userPWD", value ="密码",paramType = "form", required = true, dataType = "String")
     })
     @PostMapping("login")
+//    @RequestMapping(value="login",method = RequestMethod.POST,produces="application/x-www-form-urlencoded")
     public LoginDto login(@RequestParam String userCode, String userPWD){
 //        System.out.println(userCode);
         return loginService.login(userCode, userPWD);

@@ -6,12 +6,12 @@ server:
 spring:
   datasource:
     username: root
-    password: Smart123
-    url: jdbc:mysql://45.144.137.40:3306/springseed?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    password: smart
+    url: jdbc:mysql://192.168.2.106:3306/springseed?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     driver-class-name: com.mysql.jdbc.Driver
   mvc:
     async:
-      request-timeout: 20000
+      request-timeout: 30000
 
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
