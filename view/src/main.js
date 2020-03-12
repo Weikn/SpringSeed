@@ -22,6 +22,10 @@ Vue.config.productionTip = false;
 //导入需要的全局样式
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+//支持less
+import less from 'less';
+Vue.use(less);
+
 //注册mint-ui 部分组件
 import Mint from 'mint-ui';
 import 'mint-ui/lib/style.css'
