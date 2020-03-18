@@ -10,7 +10,7 @@ import axios from 'axios'
 // Vue.prototype.$http = axios;
 // 将API方法绑定到全局
 Vue.prototype.$axios = axios;
-axios.defaults.baseURL = "http://127.0.0.1:8080/";
+axios.defaults.baseURL = "http://192.168.2.108:8080/";
 Vue.config.productionTip = false;
 // axios.defaults.baseURL="/api"
 // axios.defaults.headers.post['Content-Type']='application/json';
@@ -18,9 +18,17 @@ Vue.config.productionTip = false;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 
+//添加session  支持
+import sessionStorage from '@/storage/sessionStorage'
+Vue.prototype.Session = sessionStorage //挂载到Vue实例上面
+//添加全局变量
+import Global from '@/common/Global'
+Vue.prototype.Global = Global //挂载到Vue实例上面
+
 
 //导入需要的全局样式
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 //支持less
 import less from 'less';
@@ -30,6 +38,11 @@ Vue.use(less);
 import Mint from 'mint-ui';
 import 'mint-ui/lib/style.css'
 Vue.use(Mint);
+
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
 // import VueHtml5Editor from 'vue-html5-editor'
 // Vue.use(VueHtml5Editor,VueHtml5Editor);
 
@@ -38,14 +51,30 @@ Vue.use(VueRouter);
 //引入自定义路由
 import router  from './route/router.js'
 
-
 new Vue({
     el : '#root',
     data :{
-      msg :'123'
+      // msg :'123'
     },
     render : c => c(app),
     router,
+    mounted() {
+      if (this._isMobile()) {
+        // alert("手机端");
+        Vue.prototype.Session.set("channel","mp");
+        // this.$router.replace('/m_index');
+      } else {
+        // alert("pc端");
+        Vue.prototype.Session.set("channel","pc");
+        // this.$router.replace('/pc_index');
+      }
+    },
+    methods :{
+      _isMobile() {
+        let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+        return flag;
+      }
+    }
 })
 
 //循环遍历 注册某个文件下所有组件

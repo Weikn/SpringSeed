@@ -52,8 +52,6 @@
 </template>
 
 <script>
-import  'bootstrap/dist/css/bootstrap.min.css';
-import  '../style/login/login.less';
 
 
 export  default {
@@ -67,39 +65,41 @@ export  default {
     methods : {
       login(){
         //获取到账号密码 然后调用后台api 确认账号密码是否正确 给通过
-        if ( this.username == '') {
-          // this.$emit()
-            this.msg = '账户不能为空';
-            return;
-        } 
-        if (this.password == '') {
-            this.msg = '密码不能为空';
-            return;
-        }
+        this.$router.push('noteListPC') ;
+        return;
+        // if ( this.username == '') {
+        //   // this.$emit()
+        //     this.msg = '账户不能为空';
+        //     return;
+        // } 
+        // if (this.password == '') {
+        //     this.msg = '密码不能为空';
+        //     return;
+        // }
          
-        //创建表单提交
-        let  formData =  new FormData();
-        //塞入数据
-        formData.append('userCode',this.username);
-        formData.append('userPWD',this.password);
-        // 设置请求头
-        let config = {
-          headers : {
-            'Content-Type' : 'application/x-www-form-urlencoded'
-          }
-        }
+        // //创建表单提交
+        // let  formData =  new FormData();
+        // //塞入数据
+        // formData.append('userCode',this.username);
+        // formData.append('userPWD',this.password);
+        // // 设置请求头
+        // let config = {
+        //   headers : {
+        //     'Content-Type' : 'application/x-www-form-urlencoded'
+        //   }
+        // }
 
-        //post
-        this.$axios.post('login',formData,config).then(res=>{
-          if (res.status == 'success'){
-            this.$router.push('noteList') ;
-          }
-          else {
-            this.msg = 'password is  error'
-          }
-        }).catch(err=>{
-            this.msg = 'Unknown error'
-        })
+        // //post
+        // this.$axios.post('login',formData,config).then(res=>{
+        //   if (res.status == 'success'){
+        //     this.$router.push('noteList') ;
+        //   }
+        //   else {
+        //     this.msg = 'password is  error'
+        //   }
+        // }).catch(err=>{
+        //     this.msg = 'Unknown error'
+        // })
 
         // this.$axios.get('login/' + this.username)
         // .then(function (response) {
@@ -113,11 +113,27 @@ export  default {
         //不通过 提示
 
 
+      },
+      toPage(){
+        let channel = this.Session.get('channel');
+        if (channel == undefined){
+            this.msg = 'channel is null';
+            return
+        }
+        else if ('pc' == channel){
+          this.$router.push('noteList') ;
+
+        }
+        else if ('mp' == channel){
+          this.$router.push('noteList') ;
+        }
       }
+
     }
 
 }
 </script>
 
-<style scoped>
+<style  lang='less' scoped>
+  @import  '../style/login/login.less';
 </style>

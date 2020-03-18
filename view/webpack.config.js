@@ -21,13 +21,13 @@ module.exports = {
         path :path.join(__dirname,'./dist'),
         filename : 'bundle.js'
     },
-
+    devtool: "eval-source-map",
     devServer : {
         open : true, //自动打开浏览器   
         port : 3000,    //指定端口
         contentBase : 'src', //指定默认目录
         hot  : true, //  打开热部署  免刷新
-        host : '192.168.2.104',
+        host : '192.168.2.108',
         // proxy: {
         //   '/api': {
         //     target: 'http://127.0.0.1:8080/',
@@ -117,8 +117,14 @@ module.exports = {
          ]
      },
      resolve : {
+        // 在导入语句没带文件后缀时，webpack会自动按照顺序添加后缀名查找
+        extensions: ['.js', '.vue', '.json'],
+
         alias: {
-            'vue$' : "vue/dist/vue.js"
+            'vue$' : "vue/dist/vue.js",
+            '@': path.resolve('src'),
+            'page': path.resolve(__dirname,'./src/page'),
+            'components' : path.resolve(__dirname,'./src/components'),
         }
      }
      
