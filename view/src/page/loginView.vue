@@ -65,7 +65,7 @@ export  default {
     methods : {
       login(){
         //获取到账号密码 然后调用后台api 确认账号密码是否正确 给通过
-        this.$router.push('noteListPC') ;
+        this.toPage() ;
         return;
         // if ( this.username == '') {
         //   // this.$emit()
@@ -121,11 +121,11 @@ export  default {
             return
         }
         else if ('pc' == channel){
-          this.$router.push('noteList') ;
+          this.$router.push('noteListPC') ;
 
         }
         else if ('mp' == channel){
-          this.$router.push('noteList') ;
+          this.$router.push('noteListMP') ;
         }
       }
 
